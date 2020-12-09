@@ -71,6 +71,18 @@ public class FileTransfom {
 		return inputs;
 	}
 	
+	public static ArrayList<Long> fileToLongList(String fileName) {
+		ArrayList<Long> list = new ArrayList<Long>();
+		
+		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+			stream.forEach((i) -> list.add(Long.parseLong(i)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	public static long[] inLineFileToLongArray(String fileName, String splitString) {
 		String ar[] = inLineFileToStringArray(fileName, splitString);
 		
