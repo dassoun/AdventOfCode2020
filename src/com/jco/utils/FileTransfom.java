@@ -109,6 +109,22 @@ public class FileTransfom {
 		return inputs;
 	}
 	
+	public static ArrayList<Long> inLineFileToLongList(String fileName, String splitString) {
+		String ar[] = inLineFileToStringArray(fileName, splitString);
+		
+		long inputs[] = Arrays.stream(ar)
+		        .mapToLong(Long::valueOf)
+		        .toArray();
+		
+		ArrayList<Long> list = new ArrayList<Long>();
+		
+		for (long l : inputs) {
+			list.add(l);
+		}
+		
+		return list;
+	}
+	
 	
 	public static ArrayList<String> inLineFileToStringArrayList(String fileName) {
 		ArrayList<String> al = new ArrayList<String>();
