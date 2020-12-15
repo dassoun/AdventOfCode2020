@@ -71,6 +71,22 @@ public class FileTransfom {
 		return inputs;
 	}
 	
+	public static ArrayList<Integer> inLineFileToIntList(String fileName, String splitString) {
+		String ar[] = inLineFileToStringArray(fileName, splitString);
+		
+		int inputs[] = Arrays.stream(ar)
+		        .mapToInt(Integer::valueOf)
+		        .toArray();
+		
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		for (int i : inputs) {
+			list.add(i);
+		}
+		
+		return list;
+	}
+	
 	public static ArrayList<Long> fileToLongList(String fileName) {
 		ArrayList<Long> list = new ArrayList<Long>();
 		
